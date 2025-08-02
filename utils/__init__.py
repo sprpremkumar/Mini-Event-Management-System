@@ -12,8 +12,3 @@ def convert_to_timezone(dt: datetime, tz_str: str) -> datetime:
 
 def generate_id(prefix: str) -> str:
     return f"{prefix}_{uuid.uuid4().hex}"
-
-def to_utc(dt: datetime) -> datetime:
-    if dt.tzinfo is None:
-        return dt.replace(tzinfo=timezone.utc)
-    return dt.astimezone(timezone.utc)
