@@ -8,7 +8,7 @@ from utils import generate_id
 class Event(Base):
     __tablename__ = "events"
 
-    id = Column(String, primary_key=True, index=True, default=generate_id("Event"))
+    id = Column(String, primary_key=True, index=True, default=lambda: generate_id("Event"))
     name = Column(String, nullable=False)
     location = Column(String, nullable=False)
     start_time = Column(DateTime(timezone=True), nullable=False)
@@ -20,7 +20,7 @@ class Event(Base):
 class Attendee(Base):
     __tablename__ = "attendees"
 
-    id = Column(String, primary_key=True, index=True, default=generate_id("Attendee"))
+    id = Column(String, primary_key=True, index=True, default=lambda: generate_id("Attendee"))
     name = Column(String, nullable=False)
     email = Column(String, nullable=False)
     event_id = Column(String, ForeignKey("events.id"))

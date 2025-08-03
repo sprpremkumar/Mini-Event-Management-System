@@ -12,7 +12,7 @@ from schemas.event_schema import (
 )
 from services.event_service import EventService
 
-event_router = APIRouter(prefix="/events", tags=["Events"])
+event_router = APIRouter(tags=["Events"])
 
 
 # Create a new event
